@@ -1,0 +1,69 @@
+{
+  "name": "handbrake-js",
+  "author": "Lloyd Brookes <75pound@gmail.com>",
+  "version": "7.0.0",
+  "description": "Handbrake for node.js. Brings video encoding.",
+  "repository": "https://github.com/75lb/handbrake-js",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "handbrake": "bin/cli.js"
+  },
+  "exports": {
+    "import": "./index.js",
+    "require": "./dist/index.cjs"
+  },
+  "keywords": [
+    "handbrake",
+    "encode",
+    "transcode",
+    "video",
+    "mp4",
+    "m4v",
+    "avi",
+    "h.264",
+    "h.265",
+    "vp8",
+    "mp3"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "files": [
+    "bin/cli.js",
+    "lib",
+    "dist",
+    "scripts",
+    "index.js"
+  ],
+  "scripts": {
+    "test": "npm run dist && npm run test:ci",
+    "test:ci": "test-runner test/*.js",
+    "dist": "rollup -c",
+    "postinstall": "node scripts/install.js",
+    "ubuntu-setup": "./scripts/install-ubuntu.sh",
+    "docs": "jsdoc2md -t README.hbs lib/*.js index.js > README.md"
+  },
+  "dependencies": {
+    "ansi-escape-sequences": "^6.2.2",
+    "command-line-args": "^5.2.1",
+    "current-module-paths": "^1.1.1",
+    "decompress": "^4.2.1",
+    "node-fetch": "^3.3.1",
+    "object-to-spawn-args": "^2.0.1",
+    "rimraf": "^5.0.0"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.1.0",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "jsdoc-to-markdown": "^8.0.0",
+    "rollup": "^3.21.3",
+    "sleep-anywhere": "^2.1.1",
+    "test-runner": "^0.10.1"
+  },
+  "standard": {
+    "envs": [
+      "node"
+    ]
+  }
+}

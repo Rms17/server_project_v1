@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= estado %> </title>
+</head>
+<body>
+    <h1 style="text-align: center;">Lista de videos</h1>
+    <table style="border: 2px solid; border-collapse: collapse; text-align: center;margin-left: auto;margin-right: auto">
+        <tr style="border: 1px solid;">
+            <td style="border: 1px solid; font-weight: bold; background-color: darkgray;">Nombre</td>
+            <td style="border: 1px solid;font-weight: bold;background-color: darkgray;">Fecha de grabación</td>
+            <td style="border: 1px solid;font-weight: bold;background-color: darkgray;">Path</td>
+        </tr>
+        <% for (c in data[1]) {%>
+            <tr style="border: 1px solid;">
+                <td style="border: 1px solid; background-color: rgb(112, 176, 235);"> 
+                    <% const path = 'show_video_hist.ejs?video_name=' + data[1][c] %>
+                    <a href="<%= path %>" style="color: darkblue;"><%= data[1][c] %> </a>
+                </td >
+                <td style="border: 1px solid;background-color: rgb(112, 176, 235);"> 
+                    <%= data[0][c] %> 
+                </td>
+                <td style="border: 1px solid;background-color: rgb(112, 176, 235);"> 
+                    <%= Path %>
+                </td>
+            </tr>
+        <% } %>   
+        
+    </table>
+</body>
+</html>
